@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var dares = require('./routes/dares')
 
 var app = express();
 
@@ -27,6 +28,7 @@ mongoose.connect(process.env.DB_CONN_DAREGAME);
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/dares', dares);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
