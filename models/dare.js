@@ -6,7 +6,8 @@ var dareSchema = new mongoose.Schema({
   hashtag: { type: String, required: true },
   category: String,
   imageURL: String,
-  timeLimit: Number
+  timeLimit: Number,
+  users: [ {type : mongoose.Schema.ObjectId, ref: 'User'}]
 });
 
 var Dare = mongoose.model('Dare', dareSchema);
