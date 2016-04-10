@@ -9,14 +9,14 @@ The user must be authenticated (via Instagram) to gain access.
 This adds the dare to the user database with accepted == false.
 If successful, the API will respond with random dare of the same category where accepted == null.
 ####Route: PUT /api/v1/users
-(with accepted == false && completed == null)
-| Parameter     | Required      |
-| ------------: |---------------| 
-| dare          | yes           | 
-| user          | yes           | 
-| accepted      | yes, == true  |
-| completed     | yes, *!= true*  |
-| category      | yes           | 
+(with accepted == false && completed != true)  
+| Parameter     | Required       | 
+| ------------: | -------------- |
+| dare          | yes            | 
+| user          | yes            |
+| accepted      | yes, **== false**  |
+| completed     | yes, *!= true** |
+| category      | yes            |
 
 ###Mark a dare as complete:
 First verify via Instagram that recent media has a hashtag == the dare hashtag.
@@ -25,7 +25,7 @@ If verification fails, render a pop up message that we could not find proof in I
 If success, return success.
 ####Route: PUT /api/v1/users
 | Parameter     | Required      |
-| ------------: |---------------| 
+| ------------: | ------------- | 
 | user          | yes           | 
 | category      | yes           |
 | completed     | yes, *== true* |
@@ -59,7 +59,7 @@ A simple page to describe how to play.  Should be a button on the home page.
 ####Route: GET /dare
 call GET /api/v1/dares to get a random dare
 Render 'dare' after the API returns a dare.
-This route is intended to be hit from the index page when user selects a category or from user page when a user requests a new dare.
+This route is intended to be hit from the index page when user selects a category or from user page when a user requests a new dare.  
 | Parameter     | Required      |
 | ------------: |---------------| 
 | user          | yes           | 
