@@ -35,6 +35,7 @@ If success, return success.
 ###Get a random dare from a specified category:
 If successful, the API will respond with random dare of the specified category where accepted == null for the user specified.  (accepted == null means the user has not yet voted on this dare)
 ####Route: GET /api/v1/dares
+
 | Parameter     | Required      |
 | ------------: |---------------| 
 | user          | yes           | 
@@ -60,6 +61,7 @@ A simple page to describe how to play.  Should be a button on the home page.
 call GET /api/v1/dares to get a random dare
 Render 'dare' after the API returns a dare.
 This route is intended to be hit from the index page when user selects a category or from user page when a user requests a new dare.  
+
 | Parameter     | Required      |
 | ------------: |---------------| 
 | user          | yes           | 
