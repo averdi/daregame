@@ -11,6 +11,23 @@
     <p>Dare: <%= dare.description %></p>
     <p>Hashtag: <%= dare.hashtag %></p>
 
+<!-- chicken out button -->
+    <form action="/api/v1/users" method="post">
+      <input type="hidden" name="dare" value="<%= dare._id %>">
+      <input type="hidden" name="" value=" ">
+      <input type="hidden" name="" value=" ">
+      <input type="hidden" name="" value=" ">
+      <input type="submit" value="Chicken Out">
+
+
+<!-- accept dares button -->
+    <form action="/api/v1/users" method="post">
+      <input type="hidden" name="category" value="<%= dare.category %>">
+      <input type="hidden" name=" " value=" ">
+      <input type="hidden" name=" " value=" ">
+      <input type="hidden" name=" " value=" ">
+      <input type="submit" value="I'll do it">
+    </form>
 
   </body>
 </html>
