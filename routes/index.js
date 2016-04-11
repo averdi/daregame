@@ -3,18 +3,11 @@ var router = express.Router();
 var request = require('request'); // for the http calls
 var querystring = require('querystring');
 
-
-var Dare = require('../models/dare');
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  Dare.findOneRandom({}, function(err, dare) {
-    res.render('dare', {
-      title: 'Dares',
-      dare: dare
-       });
-    });
+  res.render('index', { title: 'Express' });
 });
+
 
 // route for Instagram sign-in
 router.get('/sign-in', function(req, res){
