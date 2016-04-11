@@ -8,12 +8,14 @@ var http = require('http');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var dares = require('./routes/dares')
+var expressLayouts = require('express-ejs-layouts')
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('layout', 'layout'); // defaults to 'layout'
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -22,6 +24,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(expressLayouts)
 
 var mongoose = require('mongoose');
 mongoose.connect(process.env.DB_CONN_DAREGAME);
@@ -88,6 +92,11 @@ if (app.get('env') === 'development') {
     });
   });
 }
+
+app.get('/', function(req, res){
+  res.render('welcome', { layout: 'welcome' })
+})
+
 
 // production error handler
 // no stacktraces leaked to user
