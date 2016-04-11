@@ -5,7 +5,10 @@ var Dare = require('../models/dare');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  Dare.findOneRandom({}, function(err, dare) {
+
+var filter = { category: {$in: [req.body.category]}}
+
+  Dare.findOneRandom(filter, function(err, dare) {
     res.render('dare', {
       title: 'Dares',
       dare: dare
