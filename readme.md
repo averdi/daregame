@@ -41,10 +41,10 @@ The user must be authenticated (via Instagram) to gain access.
 
 | Parameter     | Required           | 
 | ------------: | --------------     |
-| dare          | yes                | 
+| dare._id      | yes                | 
 | user          | yes                |
 | accepted      | yes, **== false**  |
-| completed     | yes, *!= true**    |
+| completed     | yes, *!= true*     |
 | category      | yes                |
 
 
@@ -56,7 +56,7 @@ The user must be authenticated (via Instagram) to gain access.
 
 | Parameter     | Required       |
 | ------------: | -------------- | 
-| user          | yes            | 
+| user._id      | yes            | 
 | category      | yes            | 
 | hashtag       | yes            |
 | completed     | yes, *== true* |
