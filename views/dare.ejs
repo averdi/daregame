@@ -5,18 +5,22 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <section class="<%= title %>">
     <h1><%= title %></h1>
+    <p id="category">Category: <span><%= dare.category %></span></p>
+    <p id="description">Dare: <span><%= dare.description %></span></p>
+    <p id="hashtag">Hashtag: <span><%= dare.hashtag %></span></p>
+    </section>
 
-     <p>Category: <%= dare.category %></p>
-    <p>Dare: <%= dare.description %></p>
-    <p>Hashtag: <%= dare.hashtag %></p>
+
+
 
 <!-- chicken out button -->
-    <form action="/dares/api/random" method="get">
+    <form action="" method="">
       <!-- <input type="hidden" name="dareID" value="<%= dare._id %>">
       <input type="hidden" name="userID" value="<%= user._id %>"> -->
       <input type="hidden" name="category" value="<%= dare.category %>">
-      <input type="submit" value="Chicken Out">
+      <input type="submit" value="Chicken Out" id="chicken-out">
     </form>
 
 
