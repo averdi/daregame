@@ -4,7 +4,7 @@ var request = require('request'); // for the http calls
 var querystring = require('querystring');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Almost Shameless' });
 });
 
 
