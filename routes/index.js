@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
 
 // route for Instagram sign-in
 router.get('/sign-in', function(req, res){
+  console.log('in /sign-in')
   var id = process.env.INSTAGRAM_ID;
   var url = 'http://localhost:3000/auth';//the environment variable
   //redirect the browser to this address, passing it INSTAGRAM_ID for 'client_id'.
@@ -59,18 +60,15 @@ router.get('/auth', function(req, res, next){
             if (err) return handleError(err);
           });
         }
-
-
       })
-
-      // show result, passing the user and image to the view
-      res.render('welcome', {user: name, image: photo});
+      res.redirect('/');  // send them back to the index page
     }
   });
 });
 
 //  route for Instagram sign-out
 router.get('/sign-out',function(req, res){
+  console.log('session id before : ' + req.session.id);
   req.session.destroy(function() {
   //redirect the browser to index
   res.redirect('/');
