@@ -13,6 +13,7 @@
     "express": "~4.13.1",
     "express-ejs-layouts": "^2.1.0",
     "express-session": "^1.13.0",
+    "instagram-node": "^0.5.8",
     "mongoose": "^4.4.12",
     "mongoose-simple-random": "^0.3.3",
     "morgan": "~1.6.1",
