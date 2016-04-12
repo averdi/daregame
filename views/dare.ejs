@@ -2,22 +2,25 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/css/style.css' />
-    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <section class="<%= title %>">
     <h1><%= title %></h1>
+    <p id="category">Category: <span><%= dare.category %></span></p>
+    <p id="description">Dare: <span><%= dare.description %></span></p>
+    <p id="hashtag">Hashtag: <span><%= dare.hashtag %></span></p>
+    </section>
 
-     <p>Category: <%= dare.category %></p>
-    <p>Dare: <%= dare.description %></p>
-    <p>Hashtag: <%= dare.hashtag %></p>
+
+
 
 <!-- chicken out button -->
-    <form action="/dares/api/random" method="get">
+    <form action="" method="">
       <!-- <input type="hidden" name="dareID" value="<%= dare._id %>">
       <input type="hidden" name="userID" value="<%= user._id %>"> -->
       <input type="hidden" name="category" value="<%= dare.category %>">
-      <input type="submit" value="Chicken Out">
+      <input type="submit" value="Chicken Out" id="chicken-out">
     </form>
 
 
@@ -30,11 +33,9 @@
       <input type="submit" value="I'll do it">
     </form> -->
 
-<script type="text/javascript">
-$().on('click', function() {
-  // ajax
-});
-</script>
+
+ <script type="text/javascript" src="//code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script type="text/javascript" src="/javascripts/main.js"></script>
 
   </body>
 </html>

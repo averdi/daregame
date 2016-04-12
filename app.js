@@ -9,6 +9,9 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var dares = require('./routes/dares')
 var expressLayouts = require('express-ejs-layouts')
+var session = require('express-session');
+
+
 
 var app = express();
 
@@ -41,6 +44,15 @@ ig.use({
     client_secret: process.env.INSTAGRAM_SECRET,
 });
 
+// added following three for sessions
+app.use(cookieParser('S3CRE7'));
+app.use(session({
+  key: 'app.sess',
+  // store: new RedisStore, //line commented out defaulst to RAM store, not production-ready, but simplest
+  secret: 'ChangeMe' // change this to an environment variable after initial startup
+}));
+
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/dares', dares);
@@ -52,32 +64,6 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-var redirect_uri = 'http://127.0.0.1:3000/callback';
-
-exports.authorize_user = function(req, res) {
-  res.redirect(api.get_authorization_url(redirect_uri, { scope: ['likes'], state: 'a state' }));
-};
-
-exports.handleauth = function(req, res) {
-  api.authorize_user(req.query.code, redirect_uri, function(err, result) {
-    if (err) {
-      console.log(err.body);
-      res.send("Didn't work");
-    } else {
-      console.log('Yay! Access token is ' + result.access_token);
-      res.send('You made it!!');
-    }
-  });
-};
-
-// This is where you would initially send users to authorize
-app.get('/authorize_user', exports.authorize_user);
-// This is your redirect URI
-app.get('/handleauth', exports.handleauth);
-
-// http.createServer(app).listen(app.get('3000'), function(){
-//   console.log("Express server listening on port " + app.get('3000'));
-// });
 
 // error handlers
 
