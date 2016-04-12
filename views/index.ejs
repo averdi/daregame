@@ -2,27 +2,30 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/css/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <a href="/sign-in">Sign in with Instagram</a>
 
-    <form action="/dares" method="post">
+<div>
+    <form  action="/dares" method="post">
       <input type="hidden" name="category" value="miscellaneous">
       <input type="submit" value="Miscellaneous Dares">
     </form>
+    </br>
 
-    <form action="/dares" method="post">
+    <form  action="/dares" method="post">
       <input type="hidden" name="category" value="family">
       <input type="submit" value="Family Dares">
     </form>
-
-    <form action="/dares" method="post">
+    </br>
+    <form  action="/dares" method="post">
       <input type="hidden" name="category" value="party">
       <input type="submit" value="Party Dares">
     </form>
+</div>
 
   </body>
 </html>
