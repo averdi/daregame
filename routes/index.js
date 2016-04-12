@@ -58,8 +58,6 @@ router.get('/auth', function(req, res, next){
           user.save(function (err) {
             if (err) return handleError(err);
           });
-        } else {
-
         }
 
 
@@ -69,6 +67,14 @@ router.get('/auth', function(req, res, next){
       res.render('welcome', {user: name, image: photo});
     }
   });
+});
+
+//  route for Instagram sign-out
+router.get('/sign-out',function(req, res){
+  req.session.destroy(function() {
+  //redirect the browser to index
+  res.redirect('/');
+})
 });
 
 module.exports = router;
