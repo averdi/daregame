@@ -58,7 +58,6 @@ router.patch('/:id', function(req, res, next){
         {$push: {"dares": dare }},
         {safe: true, upsert: true, new : true},
         function(err, model) {
-            console.log(model);
             console.log(err);
             res.send("Success!");
         }
