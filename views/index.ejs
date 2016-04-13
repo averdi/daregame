@@ -37,7 +37,21 @@
      <div class="w-container">
       <h1 class="h1-centered">🅐🅛🅜🅞🅢🅣</h1>
       <h1 class="h1-centered"> 🅢🅗🅐🅜🅔🅛🅔🅢🅢</h1>
-      <a href="#" data-ix="fullscreen-image-hover-1" class="fullscreen-image-title">Fam</a><a href="#" data-ix="fullscreen-image-hover-2" class="fullscreen-image-title">Homies</a><a href="#" data-ix="fullscreen-image-hover-3" class="fullscreen-image-title">Strangers</a>
+       <form data-ix="fullscreen-image-hover-1" class="fullscreen-image-title" action="/dares" method="post">
+      <input type="hidden" name="category" value="family">
+      <input type="submit" value="Family Dares">
+    </form>
+
+       <form data-ix="fullscreen-image-hover-2" class="fullscreen-image-title" action="/dares" method="post">
+      <input type="hidden" name="category" value="miscellaneous">
+      <input type="submit" value="Miscellaneous Dares">
+    </form>
+
+        <form data-ix="fullscreen-image-hover-3" class="fullscreen-image-title" action="/dares" method="post">
+      <input type="hidden" name="category" value="party">
+      <input type="submit" value="Party Dares">
+    </form>
+
      </div>
    </div>
    <div class="fullscreen-image-container-1"></div>
@@ -47,22 +61,13 @@
 
 
 
-<div class="formButtons">
-    <form  action="/dares" method="post">
-      <input type="hidden" name="category" value="miscellaneous">
-      <input type="submit" value="Miscellaneous Dares">
-    </form>
+<div>
+
     </br>
 
-    <form  action="/dares" method="post">
-      <input type="hidden" name="category" value="family">
-      <input type="submit" value="Family Dares">
-    </form>
+
     </br>
-    <form  action="/dares" method="post">
-      <input type="hidden" name="category" value="party">
-      <input type="submit" value="Party Dares">
-    </form>
+
 </div>
 
 
