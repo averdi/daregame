@@ -44,17 +44,31 @@ router.get('/api/random', function(req, res, next) {
 
 //A user accepts a Dare
 router.patch('/:id', function(req, res, next){
-  User.find({_id: req.session.user}, function(err, userDocument) {
-    if (err) console.log(err);
-    console.log(userDocument);
-    console.log(req.session.user);
-   res.redirect('/dares');
-    console.log(req.session.ourUserID);
-    user = req.session.igUserName; // copy the Instagram user name session variable to a local variable
-    res.render('userdare', {
-      user: user // user is required to render the conditional log in / log out on layouts.ejs
-    });
+  var id = req.params.id;
+  Dare.findOneAndUpdate({ _id: id }, {accepted: "true"} ,function(err, dare){
+    console.log(dare);
+    User.findOneAndUpdate(
+        { instagramID: req.session.igUserID },
+        {$push: {"dares": dare }},
+        {safe: true, upsert: true, new : true},
+        function(err, model) {
+            console.log(model);
+            console.log(err);
+            res.send("Success!");
+        }
+    );
   });
+  // User.find({_id: req.session.user}, function(err, userDocument) {
+  //   if (err) console.log(err);
+  //   console.log(userDocument);
+  //   console.log(req.session.user);
+  //  res.redirect('/dares');
+  //   console.log(req.session.ourUserID);
+  //   user = req.session.igUserName; // copy the Instagram user name session variable to a local variable
+  //   res.render('userdare', {
+  //     user: user // user is required to render the conditional log in / log out on layouts.ejs
+  //   });
+  // });
 // res.send(req.body)
 });
 
