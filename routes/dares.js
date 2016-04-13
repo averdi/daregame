@@ -44,6 +44,24 @@ router.get('/api/random', function(req, res, next) {
   // })
 });
 
+router.patch('/:id', function(req, res, next){
+  User.find({_id: req.session.ourUserID}, function(err, userDocument) {
+    if (err) console.log(err);
+    console.log(userDocument);
+    console.log(req.session.ourUserID);
+   res.render('/dares');
+  });
+// res.send(req.body)
+});
+
+// router.get('/api', function(req, res, next){
+//   User.find({ accepted: true }, 'hashtag', function(err, dares) {
+//     if (err) console.log(err);
+//     console.log(dares);
+//     res.render('/dares', { dare: dares });
+//   });
+// });
+
 // handle post to mark a dare as complete //
 router.post('/complete', function(req, res, next) {
   if (req.session.igUserID){ // if the session has been associated with an instagram ID allow this action
@@ -67,7 +85,6 @@ router.post('/complete', function(req, res, next) {
   else { // otherwise, we know the user has not signed in.  Send them to sign in.
     res.redirect('/sign-in');
   }
-
 });
 
 module.exports = router;
