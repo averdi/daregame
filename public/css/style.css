@@ -305,7 +305,21 @@ p {
   		opacity: 1;
   	}
   }
-
+/*to get buttons on index and dares page to display next to ea other*/
   form {
     display: inline;
+  }
+
+/*dare view css*/
+  .dareDescription {
+    border: 1px solid black;
+    margin-bottom: 30px;
+    background-color: white;
+    padding: 10px;
+  }
+
+  .dareBody {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 500px;
   }
