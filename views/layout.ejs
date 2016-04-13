@@ -5,22 +5,11 @@
     <title>Almost Shameless</title>
 
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <% if (user){ %>
-          <span class="navbar-brand"><%=  'hi ' + user; %></span>
-          <% } else {  %>
-            <a class="navbar-brand" href="/sign-out"><%= 'Log out' %></a>
-          <% } %>
-        </div>
-      </div>
-    </nav>
+    <% if (user){ %>
+    <span class="navbar-brand"><%=  'hi ' + user; %></span>
+    <% } else {  %>
+      <a class="navbar-brand" href="/sign-out"><%= 'Log out' %></a>
+    <% } %>
 
     <main class="container">
       <%- body %>
