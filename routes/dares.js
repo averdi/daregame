@@ -4,17 +4,17 @@ var router = express.Router();
 var Dare = require('../models/dare');
 var User = require('../models/user');
 
-/* GET home page. */
+/* selected a dare category on the home page */
 router.post('/', function(req, res, next) {
   if (req.session.igUserID){ // if the session has been associated with an instagram ID, render the page
-    console.log('req.session was found :' + req.session.id);
     var filter = { category: {$in: [req.body.category]}};
 
     User.findOne('instagramID', '_id', function(userErr, currentUser) {
       if (userErr) console.log(userErr);
-      console.log('users=' + currentUser);
+      console.log('currentUser=' + currentUser);
 
       Dare.findOneRandom(filter, function(dareErr, dare) {
+        console.log('currentUser=' + currentUser);
         res.render('dare', {
           title: 'Dares',
           dare: dare,
@@ -31,17 +31,17 @@ router.post('/', function(req, res, next) {
 
 router.get('/api/random', function(req, res, next) {
   var filter = { category: {$in: [req.query.category]}};
-
-  User.findOne('instagramID', '_id', function(userErr, currentUser) {
-    if (userErr) console.log(userErr);
-    console.log('users=' + currentUser);
+  // the following four lines were not being used.  Jason H
+  // var igUserID = req.session.igUserID; // get the session variable and store it locally
+  // User.findOne(igUserID, '_id', function(userErr, currentUser) {
+  //   if (userErr) console.log(userErr);
+  //   console.log('/api/random users=' + currentUser);
 
     Dare.findOneRandom(filter, function(dareErr, dare) {
       if (dareErr) console.log(dareErr);
-
       res.json(dare);
     });
-  })
+  // })
 });
 
 router.patch('/:id', function(req, res, next){
@@ -62,6 +62,29 @@ router.patch('/:id', function(req, res, next){
 //   });
 // });
 
+// handle post to mark a dare as complete //
+router.post('/complete', function(req, res, next) {
+  if (req.session.igUserID){ // if the session has been associated with an instagram ID allow this action
+    var dareID = { dareID: {$in: [req.body.dareId]}}; // create a key: value pair called filter
+    var catID = { category: {$in: [req.body.category]}}; // create a key: value pair called filter
 
+
+    User.findOne('instagramID', '_id', function(userErr, currentUser) {// get the user _id by searching out DB for instagramID
+      if (userErr) console.log(userErr);
+      console.log('users=' + currentUser);
+
+      User.findOne(filter, function(dareErr, dare) {
+        res.render('dare', {
+          title: 'Dares',
+          dare: dare,
+          user: currentUser
+           });
+        });
+    })
+  }
+  else { // otherwise, we know the user has not signed in.  Send them to sign in.
+    res.redirect('/sign-in');
+  }
+});
 
 module.exports = router;

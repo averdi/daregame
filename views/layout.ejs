@@ -5,8 +5,14 @@
     <title>Almost Shameless</title>
 
   <body>
-
-            <a class="navbar-brand" href="/sign-out">Log out</a>
+    <% if (user){ %>
+    <span class="navbar-brand"><%=  'hi ' + user; %></span>
+    <a class="navbar-brand" href="/sign-out"><%= 'Log out' %></a>
+    <% } else {  %>
+    <a class="navbar-brand" href="/sign-in"><%= 'Sign in with Instagram!' %></a>
+    <% } %>
+<!-- the following line, I believe, was added in error while the code above was deleted Jason H -->
+            <!-- <a class="navbar-brand" href="/sign-out">Log out</a> -->
 
 
     <main class="container">

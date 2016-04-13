@@ -6,10 +6,17 @@ var User = require('../models/user');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 
-
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Almost Shameless' });
+  if (req.session.igUserName){ // if there is an authenticated Instagram user
+    var user = req.session.igUserName // copy the Instagram user name session variable to a local variable
+  }
+  else {
+    var user = null  // if not authenticated, user === null
+  }
+  res.render('index', { //render the inde view and send the user variable.  js in the view will render conditionally
+    title: 'Almost Shameless',
+    user: user
+  });
 });
 
 
@@ -48,6 +55,7 @@ router.get('/auth', function(req, res, next){
       var photo = JSON.parse(body).user.profile_picture;// put profile pic in a variable
       req.session.igUserAccessToken = JSON.parse(body).user.access_token; //store the access token as a session variable
       req.session.igUserID = JSON.parse(body).user.id; //store the Instagram user ID as a session variable
+      req.session.igUserName = JSON.parse(body).user.username; // store Instagram user name as a session variable
       var iID = req.session.igUserID;
       console.log('iID = ' + parseInt(iID));
       User.findOne({ instagramID: iID }, '_id', function(err, user) { //get our user id based on a search for the instagram user ID
@@ -59,6 +67,9 @@ router.get('/auth', function(req, res, next){
           user.save(function (err) {
             if (err) return handleError(err);
           });
+        }
+        else {
+        req.session.ourUserID = user;
         }
       })
       res.redirect('/');  // send them back to the index page
