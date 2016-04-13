@@ -8,8 +8,38 @@ var cookieParser = require('cookie-parser');
 
 
 /* GET home page. */
+// router.get('/', function(req, res, next) {
+//   if (typeof req.session.igUserName != 'undefined'){  // if there is no session variable assigned...
+//   res.render('index', { // render the index page but do not send the user variable
+//     title: 'Almost Shameless',
+//   });}
+//   else {  // if a user is authtenticated,
+//     res.render('index', { // render index and send a user
+//     title: 'Almost Shameless',
+//     user: req.session.igUserName
+//   });
+//   }
+// });
+
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Almost Shameless' });
+  if (req.session.igUserName){
+    var user = req.session.igUserName
+  }
+  else {
+    var user = null
+  }
+//   // var getIgUserName = function(){ // return the igUserName if it exists, otherwise return null
+//   //   if (typeof req.session.igUserName != 'undefined'){  // if there is a session variable assigned...
+//   //     return req.session.igUserName; // the user is signed in, return the igUserName
+//   //   }
+//   //   else { // if there is no user signed in, return null
+//   //     return null;
+//   //   }
+//   // };
+  res.render('index', { // render the index page but do not send the user variable
+    title: 'Almost Shameless',
+    user: user
+  });
 });
 
 
@@ -48,6 +78,7 @@ router.get('/auth', function(req, res, next){
       var photo = JSON.parse(body).user.profile_picture;// put profile pic in a variable
       req.session.igUserAccessToken = JSON.parse(body).user.access_token; //store the access token as a session variable
       req.session.igUserID = JSON.parse(body).user.id; //store the Instagram user ID as a session variable
+      req.session.igUserName = JSON.parse(body).user.username; // store Instagram user name as a session variable
       var iID = req.session.igUserID;
       console.log('iID = ' + parseInt(iID));
       User.findOne({ instagramID: iID }, '_id', function(err, user) { //get our user id based on a search for the instagram user ID
