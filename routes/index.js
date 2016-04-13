@@ -6,37 +6,14 @@ var User = require('../models/user');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 
-
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   if (typeof req.session.igUserName != 'undefined'){  // if there is no session variable assigned...
-//   res.render('index', { // render the index page but do not send the user variable
-//     title: 'Almost Shameless',
-//   });}
-//   else {  // if a user is authtenticated,
-//     res.render('index', { // render index and send a user
-//     title: 'Almost Shameless',
-//     user: req.session.igUserName
-//   });
-//   }
-// });
-
 router.get('/', function(req, res, next) {
-  if (req.session.igUserName){
-    var user = req.session.igUserName
+  if (req.session.igUserName){ // if there is an authenticated Instagram user
+    var user = req.session.igUserName // copy the Instagram user name session variable to a local variable
   }
   else {
-    var user = null
+    var user = null  // if not authenticated, user === null
   }
-//   // var getIgUserName = function(){ // return the igUserName if it exists, otherwise return null
-//   //   if (typeof req.session.igUserName != 'undefined'){  // if there is a session variable assigned...
-//   //     return req.session.igUserName; // the user is signed in, return the igUserName
-//   //   }
-//   //   else { // if there is no user signed in, return null
-//   //     return null;
-//   //   }
-//   // };
-  res.render('index', { // render the index page but do not send the user variable
+  res.render('index', { //render the inde view and send the user variable.  js in the view will render conditionally
     title: 'Almost Shameless',
     user: user
   });
@@ -90,6 +67,9 @@ router.get('/auth', function(req, res, next){
           user.save(function (err) {
             if (err) return handleError(err);
           });
+        }
+        else {
+        req.session.ourUserID = user;
         }
       })
       res.redirect('/');  // send them back to the index page
