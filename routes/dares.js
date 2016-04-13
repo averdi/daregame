@@ -44,12 +44,13 @@ router.get('/api/random', function(req, res, next) {
   // })
 });
 
+//A user accepts a Dare
 router.patch('/:id', function(req, res, next){
-  User.find({_id: req.session.ourUserID}, function(err, userDocument) {
+  User.find({_id: req.session.user}, function(err, userDocument) {
     if (err) console.log(err);
     console.log(userDocument);
-    console.log(req.session.ourUserID);
-   res.render('/dares');
+    console.log(req.session.user);
+   res.redirect('/dares');
   });
 // res.send(req.body)
 });
