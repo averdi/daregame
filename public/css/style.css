@@ -346,128 +346,185 @@ p {
 
 
 
-/* CSS for chicken out*/
 
-  /* Reset */
-  @import url(//codepen.io/chrisdothtml/pen/ojLzJK.css);
-
-  //* Variables */
-  $color: rgb(243, 206, 73);
-  $color-dark: #403b3b;
-  $speed: "1.55s";
-  $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
-
-  /* Main Styles */
-  .button {
-  	display: block;
-  	background-color: $color;
-  	width: 300px;
-  	height: 100px;
-  	line-height: 100px;
-  	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  	font-weight: 800;
-  	margin: auto;
-  	color: #fafafa;
-  	position: absolute;
-  	top: 0;
-  	bottom: 0;
-  	left: 0;
-  	right: 0;
-  	cursor: pointer;
-  	overflow: hidden;
-  	border-radius: 15px;
-  	box-shadow: 0 0 40px 0 rgba(0,0,0,.3);
-  	transition: $transition;
-
-  	span,
-  	.icon {
-  		display: block;
-  		height: 100%;
-  		text-align: center;
-  		position: absolute;
-  		top: 0;
-  	}
-
-  	span {
-  		width: 72%;
-  		line-height: inherit;
-  		font-size: 26px;
-  		text-transform: uppercase;
-  		left: 0;
-  		transition: $transition;
-
-  		&:after {
-  			content: '';
-  			background-color: $color-dark;
-  			width: 2px;
-  			height: 70%;
-  			position: absolute;
-  			top: 15%;
-  			right: -1px;
-  		}
-  	}
-
-  	.icon {
-  		width: 28%;
-  		right: 0;
-  		transition: $transition;
-
-  		.fa {
-  			font-size: 30px;
-  			vertical-align: middle;
-  			transition: $transition, height #{$speed} ease;
-  		}
-
-  		.fa-remove {
-  			height: 36px;
-  		}
-
-  		.fa-check {
-  			display: none;
-  		}
-  	}
-
-  	&.success,
-  	&:hover {
-
-  		span {
-  			left: -72%;
-  			opacity: 0;
-  		}
-
-  		.icon {
-  			width: 100%;
-
-  			.fa {
-  				font-size: 45px;
-  			}
-  		}
-  	}
-
-  	&.success {
-  		background-color: #27ae60;
-
-  		.icon {
-
-  			.fa-remove {
-  				display: none;
-  			}
-
-  			.fa-check {
-  				display: inline-block;
-  			}
-  		}
-  	}
-
-  	&:hover {
-  		opacity: .9;
-
-  		.icon .fa-remove {
-  			height: 46px;
-  		}
-  	}
-
-  	&:active {
-  		opacity: 1;
-  	}
+/*howto slider*/
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+  font-family: 'Poiret One', cursive;
+  color: rgba(48, 69, 92, 0.8);
+}
+#wrapper {
+  min-height: 0;
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  margin: 50px 0;
+  transform: translate(-50%, 0);
+  background-color: #fefffa;
+  max-width: 450px;
+  padding: 30px;
+}
+@media (max-width: 550px) {
+  #wrapper {
+    box-sizing: border-box;
+    transform: translate(0, 0);
+    max-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    left: 0;
   }
+}
+h1,
+h2 {
+  color: #000;
+}
+h1 {
+  margin: 10% auto 0;
+  text-transform: uppercase;
+  font-size: 36px;
+  line-height: 42px;
+  letter-spacing: 3px;
+  font-weight: 100;
+  text-align: center;
+  display: table;
+  padding: 10px 0;
+  font-weight: bolder;
+  border-bottom: 2px solid #000;
+}
+h2 {
+  font-size: 26px;
+  line-height: 34px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  display: block;
+  background-color: #fefffa;
+  margin: 0;
+  cursor: pointer;
+}
+p {
+  color: rgba(48, 69, 92, 0.8);
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  max-height: 800px;
+  opacity: 1;
+  transform: translate(0, 0);
+  margin-top: 14px;
+  z-index: 2;
+  transition: all 500ms ease;
+}
+p,
+ul li i:before,
+ul li i:after {
+  transition: all 0.25s ease-in-out;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 4px;
+  padding-top: 18px;
+  border-top: 1px dotted #dce7eb;
+}
+ul li i {
+  position: absolute;
+  transform: translate(-6px, 0);
+  margin-top: 9px;
+  right: 0;
+}
+ul li i:before,
+ul li i:after {
+  content: "";
+  position: absolute;
+  background-color: #000;
+  width: 3px;
+  height: 16px;
+}
+ul li i:before {
+  transform: translate(2px, 0) rotate(45deg);
+}
+ul li i:after {
+  transform: translate(2px, 0) rotate(-45deg);
+}
+ul li input[type=checkbox] {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+}
+ul li input[type=checkbox]:checked ~ p {
+  margin-top: 0;
+  max-height: 0;
+  opacity: 0;
+  transform: translate(0, 50%);
+}
+ul li input[type=checkbox]:checked ~ i:before {
+  margin-top: 9px;
+  height: 9px;
+  transform: translate(2px, 0) rotate(45deg);
+}
+ul li input[type=checkbox]:checked ~ i:after {
+  margin-top: 9px;
+  height: 9px;
+  transform: translate(-2px, 0) rotate(-45deg);
+}
+ul li:nth-of-type(1) {
+  border-top: none;
+  animation-delay: 0.5s;
+}
+ul li:nth-of-type(2) {
+  animation-delay: 0.75s;
+}
+ul li:nth-of-type(3) {
+  animation-delay: 1s;
+}
+ul li:last-of-type {
+  padding-bottom: 0;
+}
+li {
+  animation: bounceInUp 1s ease both;
+}
+@-webkit-keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(-30px);
+  }
+  80% {
+    -webkit-transform: translateY(10px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(2000px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+  80% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
