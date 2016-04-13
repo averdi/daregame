@@ -20,20 +20,6 @@ h1 {
   text-transform: none;
 }
 
-.formButtons {
-   margin-top: 0px;
-   margin-bottom: 10px;
-   padding-left: 0px;
-   background-color: transparent;
-   font-family: museo-sans, sans-serif;
-   color: #000;
-   font-size: 58px;
-   line-height: 63px;
-   font-weight: 700;
-   text-align: left;
-   text-transform: none;
-}
-
 h2 {
   margin-top: 20px;
   margin-bottom: 10px;
