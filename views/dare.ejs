@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <title><%= title %></title>
@@ -19,6 +19,13 @@
       <input type="submit" value="Chicken Out" id="chicken-out">
     </form>
 
+    <a class="button" href="#" role="button">
+    	<span>Too Chicken</span>
+    	<div class="icon">
+    		<i class="fa fa-remove"></i>
+    		<i class="fa fa-check"></i>
+    	</div>
+    </a>
 
 <!-- accept dares button -->
     <form action="/dares/<%=dare._id%>" method="post">
@@ -28,15 +35,13 @@
     </form>
 
 
-    </br>
-    </br>
-
-    <h4> Accepted Dares </h4>
-    <p> List of accepted dares gets ajax-ed here</p>
 
 
- <script type="text/javascript" src="//code.jquery.com/jquery-2.2.0.min.js"></script>
-  <script type="text/javascript" src="/javascripts/main.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/main.js"></script>
+
+
 
   </body>
 </html>
