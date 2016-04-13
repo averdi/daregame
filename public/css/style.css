@@ -89,7 +89,7 @@ p {
   display: none;
   width: 100%;
   height: 100%;
-  background-image: url('../images/01.jpg');
+  background-image: url('http://i.imgur.com/iBghAV7.jpg');
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -105,7 +105,7 @@ p {
   display: none;
   width: 100%;
   height: 100%;
-  background-image: url('../images/02.jpg');
+  background-image: url('http://i.imgur.com/zvNjaXk.jpg');
   background-position: 50% 50%;
   background-size: cover;
   opacity: 0;
@@ -120,7 +120,7 @@ p {
   display: none;
   width: 100%;
   height: 100%;
-  background-image: url('../images/03.jpg');
+  background-image: url('http://i.imgur.com/t2e811A.jpg');
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -342,4 +342,132 @@ p {
 
   .navbar-brand {
     margin-left: 70px;
+  }
+
+
+
+/* CSS for chicken out*/
+
+  /* Reset */
+  @import url(//codepen.io/chrisdothtml/pen/ojLzJK.css);
+
+  //* Variables */
+  $color: rgb(243, 206, 73);
+  $color-dark: #403b3b;
+  $speed: "1.55s";
+  $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
+
+  /* Main Styles */
+  .button {
+  	display: block;
+  	background-color: $color;
+  	width: 300px;
+  	height: 100px;
+  	line-height: 100px;
+  	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  	font-weight: 800;
+  	margin: auto;
+  	color: #fafafa;
+  	position: absolute;
+  	top: 0;
+  	bottom: 0;
+  	left: 0;
+  	right: 0;
+  	cursor: pointer;
+  	overflow: hidden;
+  	border-radius: 15px;
+  	box-shadow: 0 0 40px 0 rgba(0,0,0,.3);
+  	transition: $transition;
+
+  	span,
+  	.icon {
+  		display: block;
+  		height: 100%;
+  		text-align: center;
+  		position: absolute;
+  		top: 0;
+  	}
+
+  	span {
+  		width: 72%;
+  		line-height: inherit;
+  		font-size: 26px;
+  		text-transform: uppercase;
+  		left: 0;
+  		transition: $transition;
+
+  		&:after {
+  			content: '';
+  			background-color: $color-dark;
+  			width: 2px;
+  			height: 70%;
+  			position: absolute;
+  			top: 15%;
+  			right: -1px;
+  		}
+  	}
+
+  	.icon {
+  		width: 28%;
+  		right: 0;
+  		transition: $transition;
+
+  		.fa {
+  			font-size: 30px;
+  			vertical-align: middle;
+  			transition: $transition, height #{$speed} ease;
+  		}
+
+  		.fa-remove {
+  			height: 36px;
+  		}
+
+  		.fa-check {
+  			display: none;
+  		}
+  	}
+
+  	&.success,
+  	&:hover {
+
+  		span {
+  			left: -72%;
+  			opacity: 0;
+  		}
+
+  		.icon {
+  			width: 100%;
+
+  			.fa {
+  				font-size: 45px;
+  			}
+  		}
+  	}
+
+  	&.success {
+  		background-color: #27ae60;
+
+  		.icon {
+
+  			.fa-remove {
+  				display: none;
+  			}
+
+  			.fa-check {
+  				display: inline-block;
+  			}
+  		}
+  	}
+
+  	&:hover {
+  		opacity: .9;
+
+  		.icon .fa-remove {
+  			height: 46px;
+  		}
+  	}
+
+  	&:active {
+  		opacity: 1;
+  	}
   }
