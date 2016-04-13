@@ -11,14 +11,12 @@ router.post('/', function(req, res, next) {
 
     User.findOne('instagramID', '_id', function(userErr, currentUser) {
       if (userErr) console.log(userErr);
-      console.log('currentUser=' + currentUser);
-
       Dare.findOneRandom(filter, function(dareErr, dare) {
-        console.log('currentUser=' + currentUser);
+        var user = req.session.igUserName;
         res.render('dare', {
           title: 'Dares',
           dare: dare,
-          user: currentUser
+          user: user
            });
         });
     })
@@ -49,7 +47,10 @@ router.patch('/:id', function(req, res, next){
     if (err) console.log(err);
     console.log(userDocument);
     console.log(req.session.ourUserID);
-   res.render('/dares');
+    user = req.session.igUserName; // copy the Instagram user name session variable to a local variable
+    res.render('userdare', {
+      user: user // user is required to render the conditional log in / log out on layouts.ejs
+    });
   });
 // res.send(req.body)
 });
