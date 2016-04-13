@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <title>Almost Shameless</title>
 
+</head>
   <body>
     <% if (user){ %>
-    <span class="navbar-brand"><%=  'Welcome, ' + user; %></span>
-    <a class="navbar-brand" href="/sign-out"><%= 'Log out' %></a>
+    <span class="navbar-brand"><%=  'Welcome, ' + user + '  '; %><a href="/sign-out"><%= 'Log out' %></a></span>
+
     <% } else {  %>
     <a class="navbar-brand" href="/sign-in"><%= 'Sign in with Instagram!' %></a>
     <% } %>
@@ -15,31 +16,7 @@
             <!-- <a class="navbar-brand" href="/sign-out">Log out</a> -->
 
 
-  <nav class="navbar navbar-fixed-left navbar-minimal animate" role="navigation">
-    <div class="navbar-toggler animate">
-      <span class="menu-icon"></span>
-    </div>
-    <ul class="navbar-menu animate">
-      <li>
-        <a href="#about-us" class="animate">
-          <span class="desc animate"> Sign in with Instagram! </span>
-          <span class="glyphicon glyphicon-user"></span>
-        </a>
-      </li>
-      <li>
-        <a href="#blog" class="animate">
-          <span class="desc animate"> How to play </span>
-          <span class="glyphicon glyphicon-info-sign"></span>
-        </a>
-      </li>
-      <li>
-        <a href="#contact-us" class="animate">
-          <span class="desc animate"> My dares </span>
-          <span class="glyphicon glyphicon-comment"></span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+
 
 
 
