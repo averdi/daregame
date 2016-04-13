@@ -23,13 +23,11 @@
 
 
 <!-- accept dares button -->
-    <!-- <form action="/api/v1/users" method="post">
-      <input type="hidden" name="dareID" value="<%= dare._id %> ">
-      <input type="hidden" name="userID" value="<%= user._id %>">
-      <input type="hidden" name="" value=" ">
-      <input type="hidden" name=" " value=" ">
-      <input type="submit" value="I'll do it">
-    </form> -->
+    <form action="/dares/<%=dare._id%>" method="post">
+      <input type="hidden" name="_method" value="PATCH">
+      <input type="hidden" name="hashtag" value="true">
+      <input type="submit" value="I'll do it" id="do-it">
+    </form>
 
 
     </br>

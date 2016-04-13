@@ -44,6 +44,24 @@ router.get('/api/random', function(req, res, next) {
   })
 });
 
+router.patch('/:id', function(req, res, next){
+  User.find({_id: req.session.ourUserID}, function(err, userDocument) {
+    if (err) console.log(err);
+    console.log(userDocument);
+    console.log(req.session.ourUserID);
+   res.render('/dares');
+  });
+// res.send(req.body)
+});
+
+// router.get('/api', function(req, res, next){
+//   User.find({ accepted: true }, 'hashtag', function(err, dares) {
+//     if (err) console.log(err);
+//     console.log(dares);
+//     res.render('/dares', { dare: dares });
+//   });
+// });
+
 
 
 module.exports = router;
