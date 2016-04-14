@@ -286,7 +286,7 @@ p {
 
   .dareBody {
     max-width: 500px;
-    text-align: center;
+     text-align: center;
     margin: 0 auto;
 
   }
@@ -312,7 +312,7 @@ p {
 font-family: 'Shadows Into Light', cursive;
   font-size: 30px;
   padding: 20px;
-  color: #525151;
+  color: #383434;
 }
 
 #hashtag {
@@ -384,10 +384,12 @@ font-family: 'Shadows Into Light', cursive;
   }
 
   .navbar-brand {
-    margin-left: 70px;
+    margin-left: 4px;
     font-family: 'Gilda Display', serif;
     font-size: 20px;
     margin-top: 4px;
+    margin-bottom: 40px;
+    display: inline-block;
   }
 
 
