@@ -1,11 +1,98 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>User Dare</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Hall of Courage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+
+    <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="js/script.js"></script>
   </head>
-  <body>
-    <p> this is the userdare.ejs view</p>
-    <p> it needs to become the place where someone marks a dare complete</p>
-  </body>
+
+
+ <body>
+<!-- We can use a small j-script to put the data-content on the td's based on the content of the th. -->
+   <h1 id="hallOfFame">Hall of Fame and Shame</h1>
+      <p>Put on your gameface</p>
+
+   <table>
+     <thead>
+       <tr>
+         <th>Dare</th>
+         <th>Instagram Evidence</th>
+         <th>Result</th>
+         <th>Active</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <td data-content="This is a very long label">
+           Dare 1 prompt
+         </td>
+         <td data-content="Subject">
+           <div class="media ">
+             <span class="img">
+               <img src="http://i.imgur.com/iBghAV7.jpg" alt="me" />
+             </span>
+             <div class="bd">
+               #ShooterMcGavin
+             </div>
+           </div>
+         </td>
+         <td data-content="Completed Date">
+           <time datetime="2016-23-03">#</time>
+         </td>
+         <td data-content="Process Status">
+           Waiting
+         </td>
+       </tr>
+       <tr>
+         <td data-content="Task">
+           Double Dare
+         </td>
+         <td data-content="Subject">
+           <div class="media ">
+             <span class="img">
+               <img src="http://i.imgur.com/zvNjaXk.jpg" alt="me" />
+             </span>
+             <div class="bd">
+               #fountainOfKnowledge
+               <br>
+               #badKnowledge
+             </div>
+           </div>
+         </td>
+         <td data-content="Completed Date">
+           <time datetime="2016-23-03">04-12-2016</time>
+         </td>
+         <td data-content="Process Status">
+           Waiting
+         </td>
+       </tr>
+       <tr>
+         <td data-content="Task">
+           Triple dog dare!
+         </td>
+         <td data-content="Subject">
+           <div class="media ">
+             <span class="img">
+               <img src="http://i.imgur.com/t2e811A.jpg" alt="me" />
+             </span>
+             <div class="bd">
+               #pyramidBuiltInADay
+             </div>
+           </div>
+         </td>
+         <td data-content="Completed Date">
+           <time datetime="2016-23-03">04-14-2016</time>
+         </td>
+         <td data-content="Process Status">
+           Waiting
+         </td>
+       </tr>
+     </tbody>
+   </table>
+
+</body>
 </html>
