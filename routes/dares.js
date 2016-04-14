@@ -2,13 +2,6 @@ var express = require('express');
 var router = express.Router();
 var Dare = require('../models/dare');
 var User = require('../models/user');
-var ig = require('instagram-node').instagram();
-
-// Every call to `ig.use()` overrides the `client_id/client_secret`
-// or `access_token` previously entered if they exist.
-ig.use({ access_token: 'YOUR_ACCESS_TOKEN' });
-ig.use({ client_id: 'YOUR_CLIENT_ID',
-         client_secret: 'YOUR_CLIENT_SECRET' });
 
 /* selected a dare category on the home page */
 router.post('/', function(req, res, next) {
@@ -60,7 +53,7 @@ router.patch('/:id', function(req, res, next){
         {safe: true, upsert: true, new : true},
         function(err, model) {
             console.log(err);
-            res.redirect("/userdare", {user: user}); // pass the view this key: val pair
+            res.render("userdare", {user: user}); // pass the view this key: val pair
         }
     );
   });
