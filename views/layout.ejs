@@ -6,7 +6,7 @@
 
 </head>
   <body>
-    <% if (global.user){ %>
+    <% if (user){ %>
     <span class="navbar-brand"><%=  'Welcome, ' + user + '  '; %><a href="/sign-out"><%= 'Log out' %></a></span>
 
     <% } else {  %>

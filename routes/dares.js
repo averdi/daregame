@@ -50,6 +50,7 @@ router.get('/api/random', function(req, res, next) {
 
 //A user accepts a Dare
 router.patch('/:id', function(req, res, next){
+  var user = req.session.igUserName;  // assign the session variable to a local variable
   var id = req.params.id;
   Dare.findOneAndUpdate({ _id: id }, {accepted: "true"} ,function(err, dare){
     console.log(dare);
@@ -59,7 +60,7 @@ router.patch('/:id', function(req, res, next){
         {safe: true, upsert: true, new : true},
         function(err, model) {
             console.log(err);
-            res.redirect("/userdare");
+            res.redirect("/userdare", {user: user}); // pass the view this key: val pair
         }
     );
   });
