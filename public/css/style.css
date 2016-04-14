@@ -386,7 +386,7 @@ font-family: 'Shadows Into Light', cursive;
   .navbar-brand {
     margin-left: 4px;
     font-family: 'Gilda Display', serif;
-    font-size: 20px;
+    font-size: 12px;
     margin-top: 4px;
     margin-bottom: 40px;
     display: inline-block;
@@ -395,4 +395,80 @@ font-family: 'Shadows Into Light', cursive;
 
 
 
-/*howto slider*/
+/*css for userdare table*/
+
+
+/*body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}*/
+
+#hallOfFame {
+   font-family: 'Amatic SC', cursive;
+   font-size: 38px;
+   font-weight: 300;
+}
+
+.media {
+  margin: 8px;
+}
+.media,
+.bd {
+  overflow: hidden;
+  _overflow: visible;
+  zoom: 1;
+}
+.media .img {
+  float: left;
+  margin-right: 8px;
+}
+.media .img img {
+  display: block;
+  border-radius: 15%;
+  width: 86px;
+}
+.media .imgExt {
+  float: right;
+  margin-left: 20px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table th,
+table td {
+  padding: 8px;
+}
+table tr {
+  border-bottom: 1px solid #c1c3c6;
+}
+table thead th {
+  text-transform: uppercase;
+  text-align: left;
+  font-weight: 400;
+}
+table tbody tr:nth-child(even) {
+  background: #f6f6f7;
+}
+@media (max-width: 640px) {
+  table thead {
+    display: none;
+  }
+  table tbody td {
+    position: relative;
+    display: block;
+    padding-left: 50%;
+  }
+  table tbody td:before {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 49%;
+    padding: 0 8px;
+    content: attr(data-content);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}
