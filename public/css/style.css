@@ -396,10 +396,13 @@ font-family: 'Shadows Into Light', cursive;
     display: inline-block;
   }
 
-
+#gameDescription {
+font-family: 'Raleway', sans-serif;
+}
 
 
 /*css for userdare table*/
+
 
 
 /*body {
