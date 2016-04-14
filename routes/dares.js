@@ -58,24 +58,11 @@ router.patch('/:id', function(req, res, next){
         {$push: {"dares": dare }},
         {safe: true, upsert: true, new : true},
         function(err, model) {
-            console.log(model);
             console.log(err);
-            res.send("Success!");
+            res.redirect("/userdare");
         }
     );
   });
-  // User.find({_id: req.session.user}, function(err, userDocument) {
-  //   if (err) console.log(err);
-  //   console.log(userDocument);
-  //   console.log(req.session.user);
-  //  res.redirect('/dares');
-  //   console.log(req.session.ourUserID);
-  //   user = req.session.igUserName; // copy the Instagram user name session variable to a local variable
-  //   res.render('userdare', {
-  //     user: user // user is required to render the conditional log in / log out on layouts.ejs
-  //   });
-  // });
-// res.send(req.body)
 });
 
 // router.get('/api', function(req, res, next){
