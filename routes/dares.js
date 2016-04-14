@@ -59,7 +59,7 @@ router.patch('/:id', function(req, res, next){
         {safe: true, upsert: true, new : true},
         function(err, model) {
             console.log(err);
-            res.send("Success!");
+            res.render("userdare");
         }
     );
   });
