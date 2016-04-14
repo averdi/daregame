@@ -315,6 +315,10 @@ font-family: 'Shadows Into Light', cursive;
   color: #525151;
 }
 
+#hashtag {
+  color: #525151;
+}
+
   /*end dare view css*/
 
   .navbar-minimal.open {
@@ -381,6 +385,9 @@ font-family: 'Shadows Into Light', cursive;
 
   .navbar-brand {
     margin-left: 70px;
+    font-family: 'Gilda Display', serif;
+    font-size: 20px;
+    margin-top: 4px;
   }
 
 
