@@ -54,7 +54,7 @@ router.patch('/:id', function(req, res, next){
         function(err, model) {
             console.log(err);
             console.log('from dares.js .patch /:id route model = ' + model);
-            res.render("userdare", {user: user, daresArray: model}); // pass the view this key: val pair
+            res.render("userdare", { user: user, daresArray: model }); // pass the view this key: val pair
         }
     );
   });

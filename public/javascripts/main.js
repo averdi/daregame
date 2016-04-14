@@ -44,37 +44,32 @@ $(function() {
 
 
 
-// Render as json object and you can easily extract media id from it
-   // METHOD 2
-   // $.ajax({
-   //     type: 'GET',
-   //     url: 'http://api.instagram.com/oembed?callback=&url=http://instagram.com/p/Y7GF-5vftL‌​/',
-   //     cache: false,
-   //     dataType: 'jsonp',
-   //     success: function(data) {
-   //         try{
-   //             var media_id = data[0].media_id;
-   //         }catch(err){}
-   //     }
-   // });
-   //
-   //
-   // $.ajax({ type: 'GET', url: 'http://api.instagram.com/oembed?callback=&url=http://instagram.com/p/Y7GF-5vftL‌​/', cache: false, dataType: 'jsonp', success: function(data) { try{ var media_id = data[0].media_id; }catch(e){ } } });
-   // METHOD 1
-   // $.ajax({
-   //     type: 'GET',
-   //     url: 'http://api.instagram.com/oembed?callback=&url='+Url, //You must define 'Url' for yourself
-   //     cache: false,
-   //     dataType: 'json',
-   //     jsonp: false,
-   //     success: function (data) {
-   //         try {
-   //             var MediaID = data.media_id;
-   //         } catch (err) {
-   //             console.log(err);
-   //         }
-   //    }
-   // });
+
+   var daresArray = [],
+      "_id":"570fa8dd52d1164c253a6d30",
+      "instagramID":null,
+      "__v":0,
+      "dares":""["57081e73e4b050965a5845aa","570824a4e4b050965a584630","57081f17e4b050965a5845ba","57081f17e4b050965a5845ba","57081f17e4b050965a5845ba","57081f17e4b050965a5845ba","57081f17e4b050965a5845ba","57081f17e4b050965a5845ba","57081ddee4b050965a584598"]
+   }}
+
+
+
+//js to populate table
+   var headertext = [],
+   headers = document.querySelectorAll("#"),
+   tablerows = document.querySelectorAll("#"),
+   tablebody = document.querySelector("#");
+
+   for(var i = 0; i < headers.length; i++) {
+     var current = headers[i];
+     headertext.push(current.textContent.replace(/\r?\n|\r/,""));
+   }
+   for (var i = 0, row; row = tablebody.rows[i]; i++) {
+     for (var j = 0, col; col = row.cells[j]; j++) {
+       col.setAttribute("data-th", headertext[j]);
+     }
+   }
+
 
 
 });
