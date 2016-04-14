@@ -289,6 +289,7 @@ p {
      text-align: center;
     margin: 0 auto;
 
+
   }
 
   #category {
@@ -317,6 +318,10 @@ font-family: 'Shadows Into Light', cursive;
 
 #hashtag {
   color: #525151;
+}
+
+.container {
+  margin: 15px;
 }
 
   /*end dare view css*/
