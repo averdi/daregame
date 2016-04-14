@@ -9,6 +9,7 @@
       <link rel="stylesheet" type="text/css" href="/css/normalize.css">
       <link rel="stylesheet" type="text/css" href="/css/webflow.css">
       <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/animate.css">
       <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
       <script>
         WebFont.load({
@@ -30,11 +31,10 @@
 
 
   <body class=dareBody>
+   <h1 id="category"><span><%= dare.category %></span></h1>
     <div class="dareDescription">
         <section class="<%= title %>">
-        <h1><%= title %></h1>
-        <p id="category">Category: <span><%= dare.category %></span></p>
-        <p id="description">Dare: <span><%= dare.description %></span></p>
+        <p id="description"><span><%= dare.description %></span></p>
         <p id="hashtag">Hashtag: <span><%= dare.hashtag %></span></p>
         </section>
     </div>

@@ -43,16 +43,6 @@ app.use(expressLayouts)
 var mongoose = require('mongoose');
 mongoose.connect(process.env.DB_CONN_DAREGAME);
 
-//require instragram node
-var ig = require('instagram-node').instagram();
-
-// Every call to `ig.use()` overrides the `client_id/client_secret`
-// or `access_token` previously entered if they exist.
-// ig.use({ access_token: 'YOUR_ACCESS_TOKEN' });
-ig.use({
-  client_id: process.env.INSTAGRAM_ID,
-    client_secret: process.env.INSTAGRAM_SECRET,
-});
 
 // added following three for sessions
 app.use(cookieParser('S3CRE7'));
