@@ -65,6 +65,12 @@ router.patch('/:id', function(req, res, next){
   });
 });
 
+//get the user variable
+router.get('/layout',function(req,res){
+  res.render("layout.",{user:req.session.igUserID});
+});
+
+
 // router.get('/api', function(req, res, next){
 //   User.find({ accepted: true }, 'hashtag', function(err, dares) {
 //     if (err) console.log(err);

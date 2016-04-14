@@ -6,7 +6,7 @@
 
 </head>
   <body>
-    <% if (user){ %>
+    <% if (global.user){ %>
     <span class="navbar-brand"><%=  'Welcome, ' + user + '  '; %><a href="/sign-out"><%= 'Log out' %></a></span>
 
     <% } else {  %>
@@ -15,7 +15,7 @@
 <!-- the following line, I believe, was added in error while the code above was deleted Jason H -->
             <!-- <a class="navbar-brand" href="/sign-out">Log out</a> -->
 
-    <% end %>
+
     <main class="container">
       <%- body %>
     </main>
