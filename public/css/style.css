@@ -450,6 +450,8 @@ table td {
 }
 table tr {
   border-bottom: 1px solid #c1c3c6;
+  font-size: 14px;
+  font-family: 'Amatic SC', cursive;
 }
 table thead th {
   text-transform: uppercase;
