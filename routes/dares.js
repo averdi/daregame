@@ -60,7 +60,7 @@ router.patch('/:id', function(req, res, next){
         {safe: true, upsert: true, new : true},
         function(err, model) {
             console.log(err);
-            res.redirect("/userdare", {user: user}); // pass the view this key: val pair
+            res.render("userdare", {user: user}); // pass the view this key: val pair
         }
     );
   });
