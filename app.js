@@ -49,10 +49,11 @@ app.use(cookieParser('S3CRE7'));
 app.use(session({
   key: 'app.sess',
   // store: new RedisStore, //line commented out defaulst to RAM store, not production-ready, but simplest
-  secret: 'ChangeMe' // change this to an environment variable after initial startup
+  secret: 'daregame' // change this to an environment variable after initial startup
 }));
 
-
+// routes ======================================================================
+require('./routes/index.js');
 app.use('/', routes);
 app.use('/users', users);
 app.use('/dares', dares);
