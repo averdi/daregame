@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 // route for Instagram sign-in
 router.get('/sign-in', function(req, res){
   console.log('in /sign-in')
-  var id = process.env.INSTAGRAM_ID1;
+  var id = process.env.INSTAGRAM_ID;
   // var url = 'http://localhost:3000';//the environment variable
   var url = 'https://daregame.herokuapp.com/';//the environment variable
 
@@ -35,8 +35,8 @@ router.get('/sign-in', function(req, res){
 // route to recieve the request token and continue to log in with Instagram
 router.get('/auth', function(req, res, next){
   var body = { // create body for the request
-    client_id: process.env.INSTAGRAM_ID1,
-    client_secret: process.env.INSTAGRAM_SECRET1,
+    client_id: process.env.INSTAGRAM_ID,
+    client_secret: process.env.INSTAGRAM_SECRET,
     grant_type: 'authorization_code',
     // redirect_uri: 'http://localhost:3000',
     redirect_uri: 'https://daregame.herokuapp.com/auth',
